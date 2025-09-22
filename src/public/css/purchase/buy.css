@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+header .logo {
+    font-size: 24px;
+}
+
+header input[type="text"] {
+    width: 300px;
+    padding: 5px;
+}
+
+header nav a {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.product-details,
+.payment-delivery,
+.purchase-summary {
+    width: 30%;
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-info h1 {
+    font-size: 20px;
+}
+
+.product-info p {
+    font-size: 18px;
+    color: #333;
+}
+
+.payment-method,
+.delivery-address {
+    margin-bottom: 20px;
+}
+
+.payment-method h2,
+.delivery-address h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.payment-method label,
+.delivery-address p {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.purchase-summary .summary {
+    margin-bottom: 20px;
+}
+
+.purchase-summary button {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}

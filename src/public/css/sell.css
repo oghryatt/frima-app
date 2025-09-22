@@ -1,0 +1,204 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* ヘッダーのスタイル */
+.header {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    flex-grow: 1;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-center {
+    flex-grow: 2;
+    text-align: center;
+}
+
+.header-center input {
+    width: 80%;
+    max-width: 400px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+}
+
+.header-right {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.header-right a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.header-right .button-primary {
+    background-color: #f44336;
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+
+/* メインコンテンツのスタイル */
+.main-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.form-section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+/* 画像アップロードエリア */
+.image-upload-area {
+    width: 100%;
+    height: 200px;
+    border: 1px dashed #ccc;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.image-select-button {
+    background-color: #fff;
+    border: 1px solid #f44336;
+    color: #f44336;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* フォームグループ */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* カテゴリータグ */
+.category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-label {
+    position: relative;
+}
+
+.tag-label .tag {
+    background-color: #eee;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    display: block;
+    cursor: pointer;
+}
+
+.tag-label input[type="checkbox"]:checked+.tag {
+    background-color: #f44336;
+    color: #fff;
+}
+
+/* 販売価格入力欄 */
+.price-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0 10px;
+}
+
+.price-input span {
+    margin-right: 5px;
+}
+
+.price-input input {
+    border: none;
+    flex-grow: 1;
+}
+
+/* 出品ボタン */
+.submit-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #d32f2f;
+}
