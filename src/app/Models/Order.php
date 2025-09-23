@@ -15,13 +15,12 @@ class Order extends Model
         'payment_method',
     ];
 
-    // リレーション: 購入者（User）
+   
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // リレーション: 購入した商品（Item）
     public function item()
     {
         return $this->belongsTo(Item::class);

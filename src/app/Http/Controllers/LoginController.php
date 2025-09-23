@@ -17,7 +17,7 @@ class LoginController extends Controller
 
     public function login(LoginRequest $request)
     {
-        // email が未認証の場合はエラー
+        
         $credentials = $request->only('email', 'password');
 
         $user = \App\Models\User::where('email', $credentials['email'])->first();
@@ -29,7 +29,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
-            return redirect()->intended(route('home')); // 認証後のリダイレクト先
+            return redirect()->intended(route('home')); 
         }
 
         throw ValidationException::withMessages([
@@ -43,7 +43,7 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/'); // トップページに戻る
+        return redirect('/'); 
     }
 }
 

@@ -32,12 +32,10 @@ class OrderController extends Controller
         $item = Item::findOrFail($item_id);
         $user = Auth::user();
 
-        // 自分の出品商品を購入しようとした場合の防止処理
         if ($item->user_id === $user->id) {
             return back()->with('error', '自分の出品した商品は購入できません。');
         }
 
-        // 商品がすでに購入済みの場合の防止処理
         if ($item->status === 'sold') {
             return redirect()->route('item.show', $item_id)->with('error', 'この商品はすでに購入されています。');
         }
@@ -53,7 +51,6 @@ class OrderController extends Controller
                 }
 
 
-        // 購入処理
         Order::create([
             'user_id' => $user->id,
             'item_id' => $item->id,

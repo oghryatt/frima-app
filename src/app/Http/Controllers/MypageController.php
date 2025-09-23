@@ -12,11 +12,9 @@ class MypageController extends Controller
 {
     public function index()
     {
-        // FN031: マイページ画面の表示
-        // FN032: 出品した商品一覧の表示
+        
         $user = Auth::user();
 
-        // 販売中の商品と売却済みの商品を分けて取得
         $sellingItems = Item::where('user_id', $user->id)
                             ->where('status', 'selling')
                             ->with('images')
@@ -32,7 +30,6 @@ class MypageController extends Controller
 
     public function show($id)
     {
-        // 他のユーザーのプロフィール表示（必要であれば）
         $user = User::findOrFail($id);
         $items = Item::where('user_id', $id)->with('images')->get();
 
@@ -41,7 +38,6 @@ class MypageController extends Controller
 
     public function buy()
     {
-        // FN033: 購入した商品一覧の表示
         $user = Auth::user();
         $purchasedItems = Order::where('user_id', $user->id)
                                ->with('item.images')

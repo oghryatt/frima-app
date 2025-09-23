@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'テストユーザー',
             'email' => 'test@example.com',
-            'password' => Hash::make('password'), // ← 任意のパスワードでOK
+            'password' => Hash::make('password'), 
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

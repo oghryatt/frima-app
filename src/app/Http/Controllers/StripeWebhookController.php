@@ -16,7 +16,7 @@ class StripeWebhookController extends Controller
     {
         $payload = $request->getContent();
         $sigHeader = $request->header('Stripe-Signature');
-        $endpointSecret = config('services.stripe.webhook_secret'); // .envに保存したWebhook署名
+        $endpointSecret = config('services.stripe.webhook_secret'); 
 
         try {
             $event = Webhook::constructEvent($payload, $sigHeader, $endpointSecret);
