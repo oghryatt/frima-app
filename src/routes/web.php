@@ -97,3 +97,5 @@ Route::get('/mypage/buy', [MypageController::class, 'buy'])->middleware('auth','
 Route::get('/purchase/card/{item_id}', [PurchaseController::class, 'card'])->name('purchase.card');
 Route::get('/stripe/success', [PurchaseController::class, 'success'])->name('stripe.success');
 Route::get('/stripe/cancel', [PurchaseController::class, 'cancel'])->name('stripe.cancel');
+
+//Auth::routes(['verify' => true]); 
