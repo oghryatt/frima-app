@@ -6,19 +6,6 @@
 @endsection
 
 @section('content')
-    <header class="header">
-        <div class="header-left">
-            <div class="logo">COACHTECH</div>
-        </div>
-        <div class="header-center">
-            <input type="text" placeholder="なにをお探しですか？">
-        </div>
-        <div class="header-right">
-            <a href="#">ログアウト</a>
-            <a href="#">マイページ</a>
-            <a href="#" class="button-primary">出品</a>
-        </div>
-    </header>
 
     <main class="main-container">
         <h1 class="page-title">メール認証</h1>

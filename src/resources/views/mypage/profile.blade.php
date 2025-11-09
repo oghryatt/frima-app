@@ -4,22 +4,6 @@
 @endsection
 @section('content')
 <body>
-    <header class="header"> <div class="header-left"> <div class="logo">COACHTECH</div>
-        </div>
-        <div class="header-center"> <div class="search-bar">
-                <input type="text" placeholder="なにをお探しですか？">
-            </div>
-        </div>
-        <div class="header-right"> <nav>
-                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
-                <a href="{{ route('mypage') }}">マイページ</a>
-                <a href="{{ route('sell.create') }}" class="button-primary">出品</a> <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display:none;">
-                    @csrf
-                </form>
-            </nav>
-        </div>
-    </header>
-
     <main class="main-container"> <h1 class="page-title">プロフィール設定</h1> @if(session('success'))
             <p class="alert alert-success">{{ session('success') }}</p>
         @endif

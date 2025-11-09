@@ -20,13 +20,16 @@ class RegisterController extends Controller
 
     public function register(RegisterRequest $request): RedirectResponse
     {
-       $user = User::create([
+        $user = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
         ]);
+        
+        Auth::login($user); 
+
         event(new Registered($user));
-        return redirect()->route('mypage.profile.edit'); 
+        
+        return redirect()->route('verification.notice'); 
     }
 }
-

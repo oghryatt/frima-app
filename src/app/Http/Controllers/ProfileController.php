@@ -15,22 +15,20 @@ class ProfileController extends Controller
         $itemsBought = Order::with('item')->where('user_id', $user->id)->latest()->get();
 
         return view('mypage.profile', [
-    'user' => $user,
-    'itemsSold' => $itemsSold,
-    'itemsBought' => $itemsBought,
-    'mode' => 'view',
-]);
-
+            'user' => $user,
+            'itemsSold' => $itemsSold,
+            'itemsBought' => $itemsBought,
+            'mode' => 'view',
+        ]);
     }
 
     public function edit()
     {
         $user = Auth::user();
         return view('mypage.profile', [
-    'user' => $user,
-    'mode' => 'edit',
-]);
-
+            'user' => $user,
+            'mode' => 'edit',
+        ]);
     }
 
     public function update(Request $request)
@@ -57,5 +55,45 @@ class ProfileController extends Controller
         ]);
 
         return redirect()->route('mypage.profile.show')->with('success', 'プロフィールを更新しました');
+    }
+
+    public function setup()
+    {
+        $user = Auth::user();
+        
+        return view('mypage.profile', [
+            'user' => $user,
+            'mode' => 'setup',
+        ]);
+    }
+
+    public function storeSetup(Request $request)
+    {
+        $user = Auth::user();
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'postcode' => 'required|string|max:10',
+            'address' => 'required|string|max:255',
+            'profile_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', 
+        ]);
+
+        if ($request->hasFile('profile_image')) {
+            $path = $request->file('profile_image')->store('public/profile_images');
+            $user->profile_image = str_replace('public/', 'storage/', $path);
+        }
+
+        $user->update([
+            'name' => $request->name,
+            'postcode' => $request->postcode,
+            'address' => $request->address,
+            'building' => $request->building,
+        ]);
+
+        Auth::logout();
+        
+        $request->session()->regenerate(true); 
+
+        return redirect()->route('login.show')->with('status', 'プロフィール設定が完了しました。再度ログインしてください。');
     }
 }
